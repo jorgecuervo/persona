@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      Lista de personas
+    </div>
+    <div class="card-block">
+
+      <table class="table table-hover">
+        <thead class="thead-default">
+          <tr>
+            <th>idPersona</th>
+            <th>apellidoPersona</th>
+            <th>nombrePersona</th>
+            <th>telefonoPersona</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of lista">
+            <td>{{ item.idPersona}}</td>
+            <td>{{ item.apellidoPersona }}</td>
+            <td>{{ item.nombrePersona }}</td>
+            <td>{{ item.telefonoPersona }}</td>
+            <td>
+              <button class="btn btn-sm btn-primary" (click)="Editar(item)">
+                        <i class="fa fa-pencil fa-fw"></i> Editar</button>
+              <button class="btn btn-sm btn-danger" (click)="Borrar(item)">
+                        <i class="fa fa-trash-o fa-fw"></i> Eliminar
+                     </button>
+            </td>
+          </tr>
+        </tbody>
+        <div>
+          <a [routerLink]="['/employee-new']">
+            <i>add</i>
+          </a>
+        </div>
+
+      </table>
+    </div>
+  </div>
+</div>
