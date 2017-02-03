@@ -13,7 +13,7 @@ export class PersonaService {
   constructor(    private http:Http  ) { }
 
    getPersonas(): Observable<Persona[]> {
-    let url = `${this.url}`;
+    let url = `${"http://localhost:9432/rest/personas"}`;
     return this.http.get(url)
                     .map(r => r.json())
                     .catch(this.handleError);
@@ -21,10 +21,18 @@ export class PersonaService {
 
 
  addPersona (persona: Persona) {
-    let url = `${this.url}`;
+    let url = `${"http://localhost:9432/rest/persona/new"}`;
     let iJson = JSON.stringify(persona);
     return this.http.post(url, iJson, {headers:this.Headers})
                     .map(response => response.json())
+                    .catch(this.handleError);;
+  }
+
+  getPersona(id: number): Observable<Persona[]> {
+    let url = `${"http://localhost:9432/rest/persona"}/${id}`;
+    return this.http.get(url)
+                    .first()
+                    .map(res => res.json())
                     .catch(this.handleError);;
   }
 

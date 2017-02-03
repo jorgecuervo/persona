@@ -6,24 +6,25 @@ import { Persona } from './persona';
 @Component({
   selector: 'app-persona',
   templateUrl: './persona.component.html',
-  styleUrls: ['./persona.component.css']
+  styleUrls: ['./persona.component.css'],
+  providers: [PersonaService]
 })
 export class PersonaComponent implements OnInit {
 
- // lista: Persona[];
+ lista: Persona[];
 
   constructor(
-    //private servicio: PersonaService
+    private servicio: PersonaService
   ) { }
 
   ngOnInit() {
 
-    //this.servicio.getPersonas()
-    //  .subscribe(
-     // rs => this.lista = rs,
-      //er => console.log(er),
-     // () => console.log(this.lista)
-      //)
+    this.servicio.getPersonas()
+     .subscribe(
+     rs => this.lista = rs,
+      er => console.log(er),
+     () => console.log(this.lista)
+      )
 
   }
 

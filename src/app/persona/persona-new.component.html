@@ -1,35 +1,63 @@
 <div class="container">
    <div class="card">
+        <div class="card-header">
+         {{ titulo }}
+      </div>
       
       <div class="card-block">
          <form novalidate [formGroup]="form">
-            
+           
             <div class="form-group">
-               <label for="idPersona">idPersona</label>
+                <label for="idPersona">idPersona</label>
                <input type="number" class="form-control" id="idPersona" formControlName="idPersona">
-               
+               <!--<div *ngIf="form.controls.idPersona.errors && form.controls.idPersona.touched">
+                  <div *ngIf="form.controls.id.errors.required" class="alert alert-danger">
+                     El campo es requerido
+                  </div>
+                  <div *ngIf="form.controls.idPersona.errors.valorUnico" class="alert alert-danger">
+                     El id ya está registrado
+                  </div>
+               </div>-->
             </div>
 
             <div class="form-group">
-               <label for="apellidoPersona">apellidoPersona</label>
+              <label for="apellidoPersona">apellidoPersona</label>
                <input type="text" class="form-control" id="apellidoPersona" formControlName="apellidoPersona">
-               
+               <!--<div *ngIf="form.controls.apellidoPersona.errors && form.controls.apellidoPersona.touched">
+                  <div *ngIf="form.controls.apellidoPersona.errors.required" class="alert alert-danger">
+                     El apellidoPersona es requerido
+                  </div>
+                  <div *ngIf="form.controls.apellidoPersona.errors.maxlength" class="alert alert-danger">
+                     El nombre del apellidoPersona sólo puede tener hasta 10 caracteres
+                  </div>
+               </div>-->
             </div>
 
             <div class="form-group">
-               <label for="nombrePersona">nombrePersona</label>
+              <label for="nombrePersona">nombrePersona</label>
                <input type="text" class="form-control" id="nombrePersona" formControlName="nombrePersona">
-               
+               <!--<div *ngIf="form.controls.nombrePersona.errors && form.controls.nombrePersona.touched">
+                  <div *ngIf="form.controls.nombrePersona.errors.required" class="alert alert-danger">
+                     El nombrePersona es requerido
+                  </div>
+               </div>-->
             </div>
             
             <div class="form-group">
-               <label for="telefonoPersona">telefonoPersona</label>
+                      <label for="telefonoPersona">telefonoPersona</label>
                <input type="text" class="form-control" id="telefonoPersona" formControlName="telefonoPersona">
-               
+               <!--<div *ngIf="form.controls.telefonoPersona.errors && form.controls.telefonoPersona.touched">
+                  <div *ngIf="form.controls.telefonoPersona.errors.required" class="alert alert-danger">
+                     El telefonoPersona es requerido
+                  </div>
+               </div>-->
             </div>
 
-    
-            
+            <button class="btn btn-primary" (click)="agregarPersona()" >
+               Guardar</button>
+            <button class="btn btn-default" (click)="limpiarFormulario()">Limpiar</button>
+<!--[disabled]="!form.valid"-->
+           
          </form>
       </div>
    </div>

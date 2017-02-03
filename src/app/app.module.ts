@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { PersonaComponent } from './persona/persona.component';
-import {PersonaEditComponent} from './persona/persona-edit.component'
+
 import {PersonaNewComponent} from './persona/persona-new.component'
 
 @NgModule({
@@ -15,7 +15,7 @@ import {PersonaNewComponent} from './persona/persona-new.component'
     AppComponent,
     HomeComponent,
     PersonaComponent,
-    PersonaEditComponent,
+ 
     PersonaNewComponent
   ],
   imports: [
