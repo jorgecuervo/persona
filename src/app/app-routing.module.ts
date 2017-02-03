@@ -10,6 +10,7 @@ const appRouters: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'persona', component: PersonaComponent },    
     { path: 'persona-new', component: PersonaNewComponent },
+    { path: 'persona-new/:idPersona', component: PersonaNewComponent },
     { path: '', component: HomeComponent }
 
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PersonaService } from './persona.service';
 import { Persona } from './persona';
+import { Router }            from '@angular/router';
 
 
 @Component({
@@ -14,6 +15,7 @@ export class PersonaComponent implements OnInit {
  lista: Persona[];
 
   constructor(
+    private router: Router,
     private servicio: PersonaService
   ) { }
 
@@ -27,5 +29,24 @@ export class PersonaComponent implements OnInit {
       )
 
   }
+
+
+  Editar(item: Persona) {
+       let link = ['/persona-new',item.idPersona];
+       this.router.navigate(link);
+   }
+
+   Borrar(item: Persona) {
+       if(!item) return;
+
+       this.servicio.delPersona(item.idPersona)
+                    .subscribe(
+                        rs => console.log(rs),
+                        er => console.log(er),
+                        () => {
+                            this.lista = this.lista.filter(h => h !== item)
+                        }
+                    )
+   }
 
 }

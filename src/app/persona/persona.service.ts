@@ -25,13 +25,28 @@ export class PersonaService {
     let iJson = JSON.stringify(persona);
     return this.http.post(url, iJson, {headers:this.Headers})
                     .map(response => response.json())
-                    .catch(this.handleError);;
+                    .catch(this.handleError);
   }
 
   getPersona(id: number): Observable<Persona[]> {
     let url = `${"http://localhost:9432/rest/persona"}/${id}`;
     return this.http.get(url)
                     .first()
+                    .map(res => res.json())
+                    .catch(this.handleError);
+  }
+
+   putPersona (persona: Persona) {
+    let url = `${"http://localhost:9432/rest/persona"}`;
+    let iJson = JSON.stringify(persona);
+    return this.http.put(url, iJson, {headers:this.Headers})
+                    .map(response => response.json())
+                    .catch(this.handleError);;
+  }
+
+  delPersona (id: number) {
+    let url = `${"http://localhost:9432/rest/persona"}/${id}`;
+    return this.http.delete(url)
                     .map(res => res.json())
                     .catch(this.handleError);;
   }
